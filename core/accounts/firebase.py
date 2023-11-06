@@ -38,7 +38,7 @@ class FirebaseAuthentication(authentication.BaseAuthentication):
 
         custom_token = auth_header.split(" ").pop()
 
-        api_key = "AIzaSyDA4p72FiIzfYKlgyy8n5A-amW7iK0r7kY"
+        api_key = os.environ.get("API_KEY")
         token_url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key={api_key}"
 
         response = requests.post(
